@@ -17,18 +17,9 @@ import {
 
 import Osp from "./components/Opensourceprojects/Osp";
 
-import Spinner from "./components/MixComponents/Spinner/Spinner";
-
 const App = () => {
     const [loading, setLoading] = useState(false);
     const {pathname} = useLocation();
-
-    useEffect(() => {
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 5000);
-    }, []);
 
     const showFooter = () => {
         return pathname !== "/register";
@@ -39,8 +30,7 @@ const App = () => {
 
     return (
         <div>
-            {loading ? (<Spinner/>) :
-                (<>
+            <>
                         <navbar>
                             <Sidebar isOpen={isOpen} toggle={toggle}/>
                             <Navbar toggle={toggle}/>
@@ -79,7 +69,6 @@ const App = () => {
                         </ScrollToTop>
                         {showFooter() && <Footer/>}
                     </>
-                )}
         </div>
     );
 };
